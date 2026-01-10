@@ -1,21 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="script.js"></script>
+
+    <script
+      lang="javascript"
+      src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"
+    ></script>
+    <script lang="javascript" type="text/javascript" src="script.js"></script>
+    <script
+      lang="javascript"
+      type="text/javascript"
+      src="empty_to_BMW.js"
+    ></script>
     <title>TFG Tools</title>
   </head>
   <body>
-    <details name="tool">
-      <summary>Leercontainer Evergreen vom Depot zu DPW</summary>
-      <p>hier kommt di UI für die Evergreen-Umfuhren vom Depot zu DPW hin</p>
-    </details>
-    <details name="tool">
-      <summary>Leercontainer Hapag vom Depot zu DPW</summary>
-      <p>hier kommt di UI für die Hapag-Umfuhren vom Depot zu DPW hin</p>
-    </details>
+    <div id="centerBox">
+      <details name="tool">
+        <summary>Leercontainer Evergreen vom Depot zu DPW</summary>
+        <div>
+          <form id="emptyContainerEvergreen">
+            <textarea
+              id="emptyContainerEvergreenFromForecast"
+              placeholder="forecast hier einkopieren"
+              required
+            ></textarea>
+            <label for="emptyContainerEvergreenDateTime">Datum / Zeit</label>
+            <input
+              type="datetime-local"
+              id="emptyContainerEvergreenDateTime"
+              value=""
+              min=""
+              required
+            />
+            <input
+              type="submit"
+              id="emptyContainerEvergreenCreate"
+              onClick="createEmptyContainersEvergreen(event);"
+              value="Erstelle Excel für Catkin-Upload"
+            />
+          </form>
+        </div>
+      </details>
+      <details name="tool">
+        <summary>Leercontainer Hapag vom Depot zu DPW</summary>
+        <div>
+          <form id="emptyContainerHapag">
+            <label for="emptyContainerHapagAmount">Anzahl</label>
+            <input
+              type="number"
+              id="emptyContainerHapagAmount"
+              placeholder="999"
+              min="1"
+              required
+            />
+            <label for="emptyContainerHapagWeek">Kalenderwoche</label>
+            <input type="week" id="emptyContainerHapagWeek" required />
+            <label for="emptyContainerHapagDateTime">Datum / Zeit</label>
+            <input
+              type="datetime-local"
+              id="emptyContainerHapagDateTime"
+              value=""
+              min=""
+              required
+            />
+            <input
+              type="submit"
+              id="emptyContainerHapagCreate"
+              onClick="createEmptyContainersHapag(event);"
+              value="Erstelle Excel für Catkin-Upload"
+            />
+          </form>
+        </div>
+      </details>
+    </div>
   </body>
 </html>
